@@ -5,17 +5,14 @@ namespace Backend_Implementation
 {
     class Storage
     {
-        ShipmentDocs shipmentdocs;
-        Events events;
-        DateTime date;
-
+        int id;
         string[] type = { "id: 1 Event Storage", "id: 2 FAEX Contest", "id: 3 Designer Storage" };
 
 
-        public string recieveArticle(string name, string color, string size, Designer designer)
-        {
-            return System.Console.WriteLine($"Article: {name} | Color: {color} | Size: {size} | Designer: {designer} | recived:{date}");
-        }
+        // public string recieveArticle(string name, string color, string size, Designer designer)
+        // {
+        //     return $"Article: {name} | Color: {color} | Size: {size} | Designer: {designer} | recived:{date}";
+        // }
 
 
     }

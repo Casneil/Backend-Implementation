@@ -12,13 +12,36 @@ namespace Backend_Implementation
         ArticleAmount articleAmount;
 
 
-        public ShipmentDocs(DateTime _date, string _source, string _target, ArticleAmount _articleAmount)
+        public ShipmentDocs(string _source, string _target, ArticleAmount _articleAmount, DateTime _date)
         {
             date = _date;
             source = _source;
             target = _target;
             articleAmount = _articleAmount;
 
+        }
+
+        public int checkAmoutOfoSpecificArticle()
+        {
+            if (articleAmount != null)
+            {
+                return articleAmount.amount;
+
+            }
+            else
+            {
+                System.Console.WriteLine("You dont have any amount");
+                return 0;
+            }
+
+
+
+
+        }
+
+        public string ToString()
+        {
+            return $"Date: {date} Source: {source} Target: {target} Article amount: {articleAmount.ToString()}";
         }
 
     }
