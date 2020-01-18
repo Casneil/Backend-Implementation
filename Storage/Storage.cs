@@ -4,6 +4,9 @@ namespace Backend_Implementation
 {
     class Storage
     {
+        ShipmentDocs shipmentdocs;
+        Events events;
+
 
     }
 }

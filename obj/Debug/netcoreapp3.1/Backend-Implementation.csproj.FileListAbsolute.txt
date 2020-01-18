@@ -1,0 +1,11 @@
+C:\Users\paran\Desktop\Backend-Implementation\bin\Debug\netcoreapp3.1\Backend-Implementation.exe
+C:\Users\paran\Desktop\Backend-Implementation\bin\Debug\netcoreapp3.1\Backend-Implementation.deps.json
+C:\Users\paran\Desktop\Backend-Implementation\bin\Debug\netcoreapp3.1\Backend-Implementation.runtimeconfig.json
+C:\Users\paran\Desktop\Backend-Implementation\bin\Debug\netcoreapp3.1\Backend-Implementation.runtimeconfig.dev.json
+C:\Users\paran\Desktop\Backend-Implementation\bin\Debug\netcoreapp3.1\Backend-Implementation.dll
+C:\Users\paran\Desktop\Backend-Implementation\bin\Debug\netcoreapp3.1\Backend-Implementation.pdb
+C:\Users\paran\Desktop\Backend-Implementation\obj\Debug\netcoreapp3.1\Backend-Implementation.csprojAssemblyReference.cache
+C:\Users\paran\Desktop\Backend-Implementation\obj\Debug\netcoreapp3.1\Backend-Implementation.AssemblyInfoInputs.cache
+C:\Users\paran\Desktop\Backend-Implementation\obj\Debug\netcoreapp3.1\Backend-Implementation.AssemblyInfo.cs
+C:\Users\paran\Desktop\Backend-Implementation\obj\Debug\netcoreapp3.1\Backend-Implementation.dll
+C:\Users\paran\Desktop\Backend-Implementation\obj\Debug\netcoreapp3.1\Backend-Implementation.pdb
