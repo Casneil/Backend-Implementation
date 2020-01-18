@@ -4,7 +4,7 @@ namespace Backend_Implementation
 {
     class ArticleAmount
     {
-        ShipmentDocs shipmentdecs;
+        ShipmentDocs shipmentdocs;
         public int amount;
 
     }
