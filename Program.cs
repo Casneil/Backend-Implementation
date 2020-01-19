@@ -11,12 +11,11 @@ namespace Backend_Implementation
 
             var casneil = new Designer(1, "Casneil Simpson");
             var diana = new Designer(1, "Diana Schwarz");
-            // var article = new List<Article>();
-            // var article = new List<Article>();
+
             var article1 = new Article(1, "Pants", "White", "XXL", casneil);
-            // System.Console.WriteLine(article.ToString());
+
             var article2 = new Article(2, "Skirt", "Green", "XS", diana);
-            // System.Console.WriteLine(article1.ToString());
+
 
             var shipment1 = new ShipmentDocs(
                 new Storage(1, "FAEX"),
@@ -32,11 +31,9 @@ namespace Backend_Implementation
             var allShipmentDocuments = new List<ShipmentDocs>();
             allShipmentDocuments.Add(shipment1);
             allShipmentDocuments.Add(shipment2);
-            // var shipment2 = new ShipmentDocs(new Storage(2, "C&C"), new Storage(4, "FAEX"), new ArticleAmount(2, article1), new DateTime(2005, 4, 20));
-            // System.Console.WriteLine("Shipment: " + shipment1.checkAmoutOfSpecificArticle());
+
             System.Console.WriteLine(shipment1.ToString());
-            // System.Console.WriteLine("Shipment: " + shipment1.checkAmoutOfSpecificArticle());
-            // System.Console.WriteLine(shipment2.ToString());
+
             var art = GetArticleList(allShipmentDocuments);
             foreach (Article a in art)
             {
@@ -50,7 +47,7 @@ namespace Backend_Implementation
         /// <summary>
         /// Returns a list of articles in all shipment documents
         /// </summary>
-        /// <param name="sdl"></param>
+        /// <param name="sdl">Shipment Document object as params</param>
         /// <returns>List of Articles from any Shipment Document</returns>
         public static List<Article> GetArticleList(List<ShipmentDocs> sdl)
         {
@@ -69,6 +66,12 @@ namespace Backend_Implementation
             return articlesList;
         }
 
+        /// <summary>
+        /// Returns a filtered amount of articles based on articles and storage id
+        /// </summary>
+        /// <param name="sdl"> Shipment Document object as params</param>
+        /// <param name="art">Article  object as params</param>
+        /// <returns>Number of articles</returns>    
         public static int GetAmount(List<ShipmentDocs> sdl, Article art)
         {
             int amnt = 0;
@@ -84,6 +87,12 @@ namespace Backend_Implementation
             }
             return amnt;
         }
+        /// <summary>
+        /// Sorts articles based on source and target
+        /// </summary>
+        /// <param name="sdl">Shipment Document object as params</param>
+        /// <param name="storageId">Storage ID object as params</param>
+        /// <returns>Returns article difference</returns>
         public static List<ArticleAmount> GetInputAndOutputDocs(List<ShipmentDocs> sdl, int storageId)
         {
             List<Article> allArticles = GetArticleList(sdl);
