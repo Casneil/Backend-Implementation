@@ -27,10 +27,16 @@ namespace Backend_Implementation
                 new Storage(4, "D&D"),
                 new List<ArticleAmount> { new ArticleAmount(30, article1), new ArticleAmount(10, article2) },
                 new DateTime(2001, 11, 11));
+            var shipment3 = new ShipmentDocs(
+                new Storage(3, "FX"),
+                new Storage(4, "D&D"),
+                new List<ArticleAmount> { new ArticleAmount(30, article1), new ArticleAmount(10, article2) },
+                new DateTime(2001, 11, 11));
 
             var allShipmentDocuments = new List<ShipmentDocs>();
             allShipmentDocuments.Add(shipment1);
             allShipmentDocuments.Add(shipment2);
+            allShipmentDocuments.Add(shipment3);
 
             System.Console.WriteLine(shipment1.ToString());
 
@@ -38,6 +44,12 @@ namespace Backend_Implementation
             foreach (Article a in art)
             {
                 System.Console.WriteLine(a.ToString());
+            }
+
+            var getinputDocs = GetInputAndOutputDocs(allShipmentDocuments, 3);
+            foreach (ArticleAmount b in getinputDocs)
+            {
+                System.Console.WriteLine(b.ToString());
             }
 
 
@@ -126,6 +138,9 @@ namespace Backend_Implementation
             return result;
 
         }
+        /*******Implement method in Shipmentdocs for shipping to check if there is actual articles in storage before articles can be shipped Hence am getting negative value for amount******/
+        /*******Implement method in Shipmentdocs for shipping to check if there is actual articles in storage before articles can be shipped Hence am getting negative value for amount******/
+
 
     }
 }

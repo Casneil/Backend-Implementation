@@ -33,6 +33,9 @@ namespace Backend_Implementation
             return sb.ToString();
         }
 
+        /*******Method for shipping to check if there is actual articles in storage before articles can be shipped******/
+        /*******Method for shipping to check if there is actual articles in storage before articles can be shipped******/
+
         public string ToString()
         {
             return $"Date: {date} Source: {source.ToString()} Target: {target.ToString()} Article amount: {articleAmountListToString()}";
