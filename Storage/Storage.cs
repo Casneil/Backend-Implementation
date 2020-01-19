@@ -6,14 +6,19 @@ namespace Backend_Implementation
     class Storage
     {
         int id;
-        string[] type = { "id: 1 Event Storage", "id: 2 FAEX Contest", "id: 3 Designer Storage" };
+        string type;
 
 
-        // public string recieveArticle(string name, string color, string size, Designer designer)
-        // {
-        //     return $"Article: {name} | Color: {color} | Size: {size} | Designer: {designer} | recived:{date}";
-        // }
+        public Storage(int _id, string _type)
+        {
+            id = _id;
+            type = _type;
+        }
 
 
+        public string ToString()
+        {
+            return $"Id: {id } Type:{type}";
+        }
     }
 }

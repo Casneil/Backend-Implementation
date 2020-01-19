@@ -1,4 +1,6 @@
+using System.Text;
 using System;
+using System.Collections.Generic;
 
 namespace Backend_Implementation
 {
@@ -6,42 +8,48 @@ namespace Backend_Implementation
     {
 
         DateTime date;
-        public string source;
-        public string target;
+        public Storage source;
+        public Storage target;
 
-        ArticleAmount articleAmount;
+        public List<ArticleAmount> articleAmountList;
 
 
-        public ShipmentDocs(string _source, string _target, ArticleAmount _articleAmount, DateTime _date)
+        public ShipmentDocs(Storage _source, Storage _target, List<ArticleAmount> _articleAmountList, DateTime _date)
         {
             date = _date;
             source = _source;
             target = _target;
-            articleAmount = _articleAmount;
+            articleAmountList = _articleAmountList;
 
         }
 
-        public int checkAmoutOfoSpecificArticle()
+        // public int checkAmoutOfSpecificArticle()
+        // {
+        //     if (articleAmount != null)
+        //     {
+        //         return articleAmountList.amount;
+
+        //     }
+        //     else
+        //     {
+        //         System.Console.WriteLine("You dont have any amount");
+        //         return 0;
+        //     }
+
+        // }
+        public string articleAmountListToString()
         {
-            if (articleAmount != null)
+            StringBuilder sb = new StringBuilder();
+            foreach (ArticleAmount a in articleAmountList)
             {
-                return articleAmount.amount;
-
+                sb.Append(a.ToString());
             }
-            else
-            {
-                System.Console.WriteLine("You dont have any amount");
-                return 0;
-            }
-
-
-
-
+            return sb.ToString();
         }
 
         public string ToString()
         {
-            return $"Date: {date} Source: {source} Target: {target} Article amount: {articleAmount.ToString()}";
+            return $"Date: {date} Source: {source.ToString()} Target: {target.ToString()} Article amount: {articleAmountListToString()}";
         }
 
     }

@@ -6,7 +6,7 @@ namespace Backend_Implementation
     {
         public int amount;
 
-        Article article;
+        public Article article;
 
         public ArticleAmount(int _amount, Article _article)
         {
