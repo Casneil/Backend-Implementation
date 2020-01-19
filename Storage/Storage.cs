@@ -5,8 +5,8 @@ namespace Backend_Implementation
 {
     class Storage
     {
-        int id;
-        string type;
+        public int id;
+        public string type;
 
 
         public Storage(int _id, string _type)

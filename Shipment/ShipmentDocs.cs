@@ -23,20 +23,6 @@ namespace Backend_Implementation
 
         }
 
-        // public int checkAmoutOfSpecificArticle()
-        // {
-        //     if (articleAmount != null)
-        //     {
-        //         return articleAmountList.amount;
-
-        //     }
-        //     else
-        //     {
-        //         System.Console.WriteLine("You dont have any amount");
-        //         return 0;
-        //     }
-
-        // }
         public string articleAmountListToString()
         {
             StringBuilder sb = new StringBuilder();

@@ -68,5 +68,55 @@ namespace Backend_Implementation
             }
             return articlesList;
         }
+
+        public static int GetAmount(List<ShipmentDocs> sdl, Article art)
+        {
+            int amnt = 0;
+            foreach (ShipmentDocs sd in sdl)
+            {
+                foreach (ArticleAmount aa in sd.articleAmountList)
+                {
+                    if (aa.article.id == art.id)
+                    {
+                        amnt += aa.amount;
+                    }
+                }
+            }
+            return amnt;
+        }
+        public static List<ArticleAmount> GetInputAndOutputDocs(List<ShipmentDocs> sdl, int storageId)
+        {
+            List<Article> allArticles = GetArticleList(sdl);
+            List<ArticleAmount> result = new List<ArticleAmount>();
+            List<ShipmentDocs> docsWithStorageAsSource = new List<ShipmentDocs>();
+            List<ShipmentDocs> docsWithStorageAsTarget = new List<ShipmentDocs>();
+
+            foreach (ShipmentDocs doc in sdl)
+            {
+                if (doc.source.id == storageId)
+                {
+                    docsWithStorageAsSource.Add(doc);
+                }
+                if (doc.target.id == storageId)
+                {
+                    docsWithStorageAsTarget.Add(doc);
+                }
+            }
+
+            int input;
+            int output;
+            int amount;
+            foreach (Article ar in allArticles)
+            {
+                input = GetAmount(docsWithStorageAsTarget, ar);
+                output = GetAmount(docsWithStorageAsSource, ar);
+                amount = input - output;
+                result.Add(new ArticleAmount(amount, ar));
+            }
+
+            return result;
+
+        }
+
     }
 }
