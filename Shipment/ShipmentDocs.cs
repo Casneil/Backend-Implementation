@@ -13,7 +13,16 @@ namespace Backend_Implementation
 
         public List<ArticleAmount> articleAmountList;
 
+        public List<ShipmentDocs> shipdocs;
 
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="_source">Source</param>
+        /// <param name="_target">Target</param>
+        /// <param name="_articleAmountList">Amount of articles</param>
+        /// <param name="_date">date shipped</param>
         public ShipmentDocs(Storage _source, Storage _target, List<ArticleAmount> _articleAmountList, DateTime _date)
         {
             date = _date;
@@ -32,6 +41,8 @@ namespace Backend_Implementation
             }
             return sb.ToString();
         }
+
+
 
         /*******Method for shipping to check if there is actual articles in storage before articles can be shipped******/
         /*******Method for shipping to check if there is actual articles in storage before articles can be shipped******/
