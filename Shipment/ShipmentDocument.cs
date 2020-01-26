@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace Backend_Implementation
 {
-    class ShipmentDocs
+    class ShipmentDocument
     {
 
         DateTime date;
@@ -13,7 +13,7 @@ namespace Backend_Implementation
 
         public List<ArticleAmount> articleAmountList;
 
-        public List<ShipmentDocs> shipdocs;
+        // public List<ShipmentDocument> shipdocs;
 
 
         /// <summary>
@@ -23,14 +23,37 @@ namespace Backend_Implementation
         /// <param name="_target">Target</param>
         /// <param name="_articleAmountList">Amount of articles</param>
         /// <param name="_date">date shipped</param>
-        public ShipmentDocs(Storage _source, Storage _target, List<ArticleAmount> _articleAmountList, DateTime _date)
+
+
+
+        public ShipmentDocument(Storage _source, Storage _target, List<ArticleAmount> _articleAmountList, DateTime _date)
         {
-            date = _date;
             source = _source;
             target = _target;
             articleAmountList = _articleAmountList;
+            date = _date;
 
         }
+
+        // public ShipmentDocument(List<ArticleAmount> _articleAmountList, DateTime _date)
+        // {
+        //     articleAmountList = _articleAmountList;
+        //     date = _date;
+
+        // }
+
+        // public ShipmentDocument(Storage _target)
+        // {
+
+        //     target = _target;
+
+        // }
+
+
+
+
+
+
 
         public string articleAmountListToString()
         {

@@ -23,52 +23,36 @@ namespace Backend_Implementation
             return $"Id: {id } Type:{type}";
         }
 
-        // public ShipmentDocs GenerateShipment(Storage target, List<ArticleAmount> articles, List<Article> article)
+
+        // public ShipmentDocument GenerateIncomingShipment(Storage target, List<ArticleAmount> articles)
         // {
         //     int input;
         //     int output;
         //     int results;
-        //     List<ShipmentDocs> incomingShipmentDocs = new List<ShipmentDocs>();
-        //     List<ShipmentDocs> outgoingShipmentDocs = new List<ShipmentDocs>();
-        //     List<ShipmentDocs> totalShipments = new List<ShipmentDocs>();
 
+        //     List<ShipmentDocument> outgoingShipmentDocument = new List<ShipmentDocument>();
+        //     List<ShipmentDocument> totalShipments = new List<ShipmentDocument>();
 
-        //     foreach (ShipmentDocs docs in target)
-        //     {
-        //         if (docs.articleAmountList == null)
-        //         {
-        //             throw new System.InvalidOperationException("There aren't enough articles in storage"); ;
-        //         }
-        //         else
-        //         {
-
-        //             foreach (ArticleAmount amnt in articles)
-        //             {
-        //                 if (amnt.amount <= 0)
-        //                 {
-        //                     output = outgoingShipmentDocs.Add(article);
-        //                 }
-        //                 if (amnt.amount >= 1)
-        //                 {
-        //                     input = incomingShipmentDocs.Add(articles);
-        //                 }
-
-        //                 results = input - output;
-
-        //                 totalShipments = new ArticleAmount(results, amnt);
-
-        //             }
-
-        //         }
-        //     }
 
         // }
 
+        // public ShipmentDocument GenerateOutgoingShipment(Storage source, List<ArticleAmount> articles)
+        // {
+        //     int input;
+        //     int output;
+        //     int results;
 
-        public static int GetAmount(List<ShipmentDocs> sdl, Article art)
+        //     List<ShipmentDocument> outgoingShipmentDocument = new List<ShipmentDocument>();
+        //     List<ShipmentDocument> totalShipments = new List<ShipmentDocument>();
+
+
+
+        // }
+
+        public static int GetAmount(List<ShipmentDocument> sdl, Article art)
         {
             int amnt = 0;
-            foreach (ShipmentDocs sd in sdl)
+            foreach (ShipmentDocument sd in sdl)
             {
                 foreach (ArticleAmount aa in sd.articleAmountList)
 
@@ -88,7 +72,7 @@ namespace Backend_Implementation
 // List<Article> outGoing = new List<Article>();
 // List<Article> inComing = new List<Article>();
 
-// foreach (ShipmentDocs sd in Storage)
+// foreach (ShipmentDocument sd in Storage)
 // {
 //     if (target.id && articles.amount > 1)
 //     {
