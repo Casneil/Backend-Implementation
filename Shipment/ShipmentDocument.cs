@@ -131,6 +131,10 @@ namespace Backend_Implementation
                     // amount = input + output; //
                     /******************************************************************************/
                     amount = input - output;
+                    if (amount < 0)
+                    {
+                        throw new Exception("No articles to ship");
+                    }
                     result.Add(new ArticleAmount(amount, art));
                 }
 

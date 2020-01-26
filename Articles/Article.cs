@@ -23,7 +23,7 @@ namespace Backend_Implementation
 
         public string ToString()
         {
-            return $"Article ID: {id} Name: {name} | Color: {color} | Size: {size} | Designer: {designer.ToString()} was shipped!";
+            return $"Article ID: {id} Name: {name} | Color: {color} | Size: {size} | Designer: {designer.ToString()}";
         }
 
     }
