@@ -31,49 +31,30 @@ namespace Backend_Implementation
             var sourceArticleAmountList = new List<ArticleAmount> { new ArticleAmount(90, article2), (new ArticleAmount(50, article1)) };
 
 
+            var shipment1 = new ShipmentDocument(
+               storage1, storage2,
+               new List<ArticleAmount> { new ArticleAmount(90, article1), new ArticleAmount(30, article2) }, new DateTime(2000, 10, 10));
 
+
+            var shipment2 = new ShipmentDocument(
+                storage2, storage1,
+                new List<ArticleAmount> { new ArticleAmount(30, article1), new ArticleAmount(40, article2) },
+                new DateTime(2001, 11, 11));
+
+
+            var allShipmentDocuments = new List<ShipmentDocument>();
+            allShipmentDocuments.Add(shipment1);
+            // allShipmentDocuments.Add(shipment2);
+            allShipmentDocuments.Add(shipment2);
+
+            storage1.FillStorage(allShipmentDocuments);
             var test = storage1.GenerateShipment(storage2, requestArticleAmountList);
             var test2 = storage2.GenerateShipment(storage1, sourceArticleAmountList);
 
 
+            storage1.ShowStock();
+            storage2.ShowStock();
 
-
-
-            // var shipment1 = new ShipmentDocument(
-            //     storage1, storage2,
-            //     ///////////////////////////////
-            //     // From Tobi ////////////////
-            //     // new Storage(1, "FAEX", _Articles),
-            //     // new Storage(2, "C&C", _Articles),
-            //     new List<ArticleAmount> { new ArticleAmount(90, article1), new ArticleAmount(30, article2) }, new DateTime(2000, 10, 10));
-
-
-            // var shipment2 = new ShipmentDocument(
-            //     storage2, storage1,
-            //     new List<ArticleAmount> { new ArticleAmount(30, article1), new ArticleAmount(40, article2) },
-            //     new DateTime(2001, 11, 11));
-
-            // ShipmentDocument shipment = new ShipmentDocument();
-            // Storage store = new Storage();
-
-            // var allShipmentDocuments = new List<ShipmentDocument>();
-            // allShipmentDocuments.Add(shipment1);
-            // // allShipmentDocuments.Add(shipment2);
-            // allShipmentDocuments.Add(shipment2);
-
-            // // System.Console.WriteLine(shipment1.ToString());
-
-            // var art = shipment.GetArticleList(allShipmentDocuments);
-            // foreach (Article a in art)
-            // {
-            //     System.Console.WriteLine(a.ToString());
-            // }
-
-            // var getinputDocs = shipment.GetInputAndOutputDocs(allShipmentDocuments, 1);
-            // foreach (ArticleAmount b in getinputDocs)
-            // {
-            //     System.Console.WriteLine(b.ToString());
-            // }
 
 
 

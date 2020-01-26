@@ -1,6 +1,7 @@
 using System.Linq;
 using System.Collections.Generic;
 using System;
+using System.Text;
 
 namespace Backend_Implementation
 {
@@ -11,8 +12,8 @@ namespace Backend_Implementation
 
         public List<Article> Articles { get; set; }
 
-        public List<ShipmentDocument> incomingShipmentDocs;
-        public List<ShipmentDocument> outgoingShipmentDocs;
+        public List<ShipmentDocument> incomingShipmentDocs = new List<ShipmentDocument>();
+        public List<ShipmentDocument> outgoingShipmentDocs = new List<ShipmentDocument>();
 
 
 
@@ -38,12 +39,18 @@ namespace Backend_Implementation
             return $"Id: {id } Type:{type}";
         }
 
+
+        public void FillStorage(List<ShipmentDocument> newShipmentDocuments)
+        {
+            incomingShipmentDocs.AddRange(newShipmentDocuments);
+        }
         public ShipmentDocument GenerateShipment(Storage target, List<ArticleAmount> articleAmount)
         {
             if (CheckAvailabilityOfItems(articleAmount))
             {
                 ShipmentDocument shipDoc = new ShipmentDocument(this, target, articleAmount, new DateTime());
                 outgoingShipmentDocs.Add(shipDoc);
+                target.incomingShipmentDocs.Add(shipDoc);
                 return shipDoc;
             }
             return null;
@@ -51,7 +58,6 @@ namespace Backend_Implementation
 
         public bool CheckAvailabilityOfItems(List<ArticleAmount> articleAmount)
         {
-            ShipmentDocument shipment = new ShipmentDocument();
             List<Article> allArticles = GetArticleList(articleAmount);
             List<ArticleAmount> result = new List<ArticleAmount>();
 
@@ -101,12 +107,89 @@ namespace Backend_Implementation
             }
         }
 
+        public void ShowStock()
+        {
+            List<Article> articlesListIn = new List<Article>();
+            List<Article> articlesListOut = new List<Article>();
+            List<ArticleAmount> articleAmountListIn = new List<ArticleAmount>();
+            List<ArticleAmount> articleAmountListOut = new List<ArticleAmount>();
+            // All Incoming shipments
+            foreach (ShipmentDocument i in incomingShipmentDocs)
+            {
+                articlesListIn.AddRange(GetArticleList(i.articleAmountList));
+                foreach (ArticleAmount a in i.articleAmountList)
+                {
+                    articleAmountListIn.Add(a);
+                }
+            }
+            Dictionary<Article, int> incomingArticleAmounts = new Dictionary<Article, int>();
+            foreach (ArticleAmount aa in articleAmountListIn)
+            {
 
-        /// <summary>
-        /// Returns a list of articles in all shipment documents
-        /// </summary>
-        /// <param name="sdl">Shipment Document object as params</param>
-        /// <returns>List of Articles from any Shipment Document</returns>
+                foreach (Article a in articlesListIn)
+                {
+                    if (a.Equals(aa.article))
+                    {
+                        incomingArticleAmounts.Add(a, aa.amount);
+                    }
+                }
+            }
+
+            // All Outgoing shipments
+            foreach (ShipmentDocument i in outgoingShipmentDocs)
+            {
+                articlesListOut.AddRange(GetArticleList(i.articleAmountList));
+                foreach (ArticleAmount a in i.articleAmountList)
+                {
+                    articleAmountListOut.Add(a);
+                }
+            }
+            Dictionary<Article, int> outgoingArticleAmounts = new Dictionary<Article, int>();
+            foreach (ArticleAmount aa in articleAmountListOut)
+            {
+
+                foreach (Article a in articlesListOut)
+                {
+                    if (a.Equals(aa.article))
+                    {
+                        outgoingArticleAmounts.Add(a, aa.amount);
+                    }
+                }
+            }
+            // Results
+            Dictionary<Article, int> result = new Dictionary<Article, int>();
+            foreach (var i in incomingArticleAmounts)
+            {
+                foreach (var j in outgoingArticleAmounts)
+                {
+                    if (i.Key == j.Key)
+                    {
+                        result.Add(i.Key, i.Value - j.Value);
+                    }
+                }
+            }
+
+            foreach (var item in result)
+            {
+                System.Console.WriteLine(item.Key.ToString() + " " + item.Value.ToString());
+            }
+
+            // return result;
+
+
+
+            // Call GetArticleList method
+
+            // Iterate over all shipment docs
+
+            // All articles
+
+
+
+        }
+
+
+
         public List<Article> GetArticleList(List<ArticleAmount> sdl)
         {
             List<Article> articlesList = new List<Article>();
@@ -123,50 +206,6 @@ namespace Backend_Implementation
             return articlesList;
         }
 
-        // public bool GenerateIncomingShipment(List<ArticleAmount> articles)
-        // {
-        //     if (articles.Count > 0)
-        //     {
-        //         return true;
-        //     }
-        //     else
-        //     {
-        //         throw new Exception("Not enough items in inventory");
-        //     }
 
-        // }
-
-        // public List<ShipmentDocument> GenerateOutgoingShipment(Storage source, List<ArticleAmount> articles)
-        // {
-        //     int input;
-        //     int output;
-        //     int results;
-
-        //     List<ShipmentDocument> incomingShipmentDocument = new List<ShipmentDocument>();
-
-        //     List<ShipmentDocument> totalShipments = new List<ShipmentDocument>();
-
-        //     return incomingShipmentDocument;
-
-
-
-        // }
-
-        // public static int GetAmount(List<ShipmentDocument> sdl, Article art)
-        // {
-        //     int amnt = 0;
-        //     foreach (ShipmentDocument sd in sdl)
-        //     {
-        //         foreach (ArticleAmount aa in sd.articleAmountList)
-
-        //         {
-        //             if (aa.article.id == art.id)
-        //             {
-        //                 amnt += aa.amount;
-        //             }
-        //         }
-        //     }
-        //     return amnt;
-        // }
     }
 }
