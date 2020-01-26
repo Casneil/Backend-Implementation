@@ -5,11 +5,12 @@ namespace Backend_Implementation
 {
     class Program
     {
-        // public static List<Article> _Articles = new List<Article>()
         // {
-        //     new Article(1, "Pants", "White", "XXL", casneil),
-        //     new Article(2, "Skirt", "Green", "XS", diana)
-        // };
+        //     public static List<Article> _Articles = new List<Article>()
+        //     {
+        //         new Article(1, "Pants", "White", "XXL", casneil),
+        //         new Article(2, "Skirt", "Green", "XS", diana)
+        //     };
 
         static void Main(string[] args)
         {
@@ -22,10 +23,19 @@ namespace Backend_Implementation
 
             var article2 = new Article(2, "Skirt", "Green", "XS", diana);
 
+            var _Articles = new List<Article>();
+            _Articles.Add(article1);
+            _Articles.Add(article2);
+
 
             var shipment1 = new ShipmentDocs(
+
                 new Storage(1, "FAEX", _Articles),
                 new Storage(2, "C&C", _Articles),
+                ///////////////////////////////
+                // From Tobi ////////////////
+                // new Storage(1, "FAEX", _Articles),
+                // new Storage(2, "C&C", _Articles),
                 new List<ArticleAmount> { new ArticleAmount(15, article1), new ArticleAmount(20, article2) },
                 new DateTime(2000, 10, 10));
             // var shipment2 = new ShipmentDocs(
@@ -34,8 +44,8 @@ namespace Backend_Implementation
             //     new List<ArticleAmount> { new ArticleAmount(30, article1), new ArticleAmount(10, article2) },
             //     new DateTime(2001, 11, 11));
             var shipment3 = new ShipmentDocs(
-                new Storage(3, "FX"),
-                new Storage(4, "D&D"),
+                new Storage(3, "FX", _Articles),
+                new Storage(4, "D&D", _Articles),
                 new List<ArticleAmount> { new ArticleAmount(30, article1), new ArticleAmount(10, article2) },
                 new DateTime(2001, 11, 11));
 

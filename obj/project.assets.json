@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\paran\\Desktop\\Backend-Implementation\\Backend-Implementation.csproj",
+      "projectUniqueName": "C:\\Users\\paran\\Desktop\\Gip\\Backend-Implementation\\Backend-Implementation.csproj",
       "projectName": "Backend-Implementation",
-      "projectPath": "C:\\Users\\paran\\Desktop\\Backend-Implementation\\Backend-Implementation.csproj",
+      "projectPath": "C:\\Users\\paran\\Desktop\\Gip\\Backend-Implementation\\Backend-Implementation.csproj",
       "packagesPath": "C:\\Users\\paran\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\paran\\Desktop\\Backend-Implementation\\obj\\",
+      "outputPath": "C:\\Users\\paran\\Desktop\\Gip\\Backend-Implementation\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\paran\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -9,6 +9,7 @@ namespace Backend_Implementation
         public Article article;
 
         public ArticleAmount(int _amount, Article _article)
+        // public ArticleAmount(int _amount, Article _article)
         {
             amount = _amount;
             article = _article;
